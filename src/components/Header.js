@@ -5,7 +5,7 @@ const Header = (props) => {
         <nav className="nav">
             <Link to="/">
                 <div>
-                    <h1>Bookmark'd</h1>
+                    <h1>Books</h1>
                 </div>
             </Link>
         </nav>
