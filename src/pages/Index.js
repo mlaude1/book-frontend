@@ -32,13 +32,13 @@ const Index = (props) => {
     const form = (
         <form onSubmit={handleSubmit}>
             <fieldset>
-            <legend>Add a new book!</legend>
+            <legend><i id="add-icon" class="fa fa-plus" aria-hidden="true"></i>Add a new book!</legend>
                 <label>Title</label>
                 <input 
                     type="text"
                     value={newForm.title}
                     name="title"
-                    placeholder="Frankenstein"
+                    // placeholder="Book Title"
                     onChange={handleChange}
                 />
                 <label>Author</label>
@@ -46,7 +46,7 @@ const Index = (props) => {
                     type="text"
                     value={newForm.author}
                     name="author"
-                    placeholder="Mary Shelley"
+                    // placeholder="Author"
                     onChange={handleChange}
                 />
                 <label>Genres</label>
@@ -54,7 +54,7 @@ const Index = (props) => {
                     type="text"
                     value={newForm.genre}
                     name="genre"
-                    placeholder="Horror, Science Fiction"
+                    // placeholder="Genre"
                     onChange={handleChange}
                 />
                 <label>Book Cover</label>
@@ -62,7 +62,7 @@ const Index = (props) => {
                     type="text"
                     value={newForm.coverImage}
                     name="coverImage"
-                    placeholder="Book Cover Image"
+                    // placeholder="Book Cover Image"
                     onChange={handleChange}
                 />
                 <label>Description</label>
@@ -70,7 +70,7 @@ const Index = (props) => {
                     type="text"
                     value={newForm.description}
                     name="description"
-                    placeholder="Brief Description"
+                    // placeholder="Brief Description"
                     onChange={handleChange}
                 />
             </fieldset>

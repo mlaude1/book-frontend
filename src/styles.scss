@@ -25,7 +25,8 @@ $tertiary-bold: #ff7b00;
 }
 
 @mixin title-font {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Kurale', serif;
+  font-size: 2em;
   font-weight: 700;
 }
 
@@ -68,6 +69,11 @@ nav {
 
       h1 {
         @include title-font();
+      }
+      h1:hover {
+        // color: $tertiary-dark;
+        text-shadow: 0 0 2px $tertiary-dark, 0 0 2px $tertiary-dark;
+        transition: .2s ease;
       }
     }
 
@@ -178,6 +184,12 @@ form {
   }
 }
 
+#add-icon, #pencil-icon {
+  position: relative;
+  font-size: .7em;
+  bottom: 3px;
+  right: 5px;
+}
 
 // =========================
 // Delete button
@@ -195,7 +207,7 @@ form {
   #trash-can-icon {
     position: relative;
     bottom: .5px;
-    right: 3px;
+    right: 5px;
   }
 }
 

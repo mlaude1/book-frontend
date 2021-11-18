@@ -46,7 +46,7 @@ const Show = (props) => {
         const form = (
             <form onSubmit={handleSubmit}>
                 <fieldset>
-                <legend>Edit book details:</legend>
+                <legend><i id="pencil-icon" class="fa fa-pencil" aria-hidden="true"></i>Edit book details</legend>
                 <input 
                     type="text"
                     value={editForm.title}
