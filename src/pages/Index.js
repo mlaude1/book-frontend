@@ -31,42 +31,49 @@ const Index = (props) => {
 
     const form = (
         <form onSubmit={handleSubmit}>
-            <legend>Add a new book!</legend>
-            <input 
-                type="text"
-                value={newForm.title}
-                name="title"
-                placeholder="Book Title"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.author}
-                name="author"
-                placeholder="Author"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.genre}
-                name="genre"
-                placeholder="Genre"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.coverImage}
-                name="coverImage"
-                placeholder="Book Cover Image"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.description}
-                name="description"
-                placeholder="Brief Description"
-                onChange={handleChange}
-            />
+            <fieldset>
+            <legend><i id="add-icon" class="fa fa-plus" aria-hidden="true"></i>Add a new book!</legend>
+                <label>Title</label>
+                <input 
+                    type="text"
+                    value={newForm.title}
+                    name="title"
+                    // placeholder="Book Title"
+                    onChange={handleChange}
+                />
+                <label>Author</label>
+                <input 
+                    type="text"
+                    value={newForm.author}
+                    name="author"
+                    // placeholder="Author"
+                    onChange={handleChange}
+                />
+                <label>Genres</label>
+                <input 
+                    type="text"
+                    value={newForm.genre}
+                    name="genre"
+                    // placeholder="Genre"
+                    onChange={handleChange}
+                />
+                <label>Book Cover</label>
+                <input 
+                    type="text"
+                    value={newForm.coverImage}
+                    name="coverImage"
+                    // placeholder="Book Cover Image"
+                    onChange={handleChange}
+                />
+                <label>Description</label>
+                <input 
+                    type="text"
+                    value={newForm.description}
+                    name="description"
+                    // placeholder="Brief Description"
+                    onChange={handleChange}
+                />
+            </fieldset>
             <input type="submit" value="Add Book" />
         </form>
     )
@@ -77,11 +84,13 @@ const Index = (props) => {
                 {form}
                 <div className="books-container">
                     {props.books.map((book) => {
-                        return (<div key={book._id} className = "book">
+                        return (<div key={book._id} className="book">
                             <Link to={`/books/${book._id}`}>
                                 <img src={book.coverImage}/>
-                                <h1>{book.title}</h1>
-                                <h2>by {book.author}</h2>
+                                <div className="book-details">
+                                    <h1>{book.title}</h1>
+                                    <h2>by {book.author}</h2>
+                                </div>
                             </Link>
                         </div>)
                     })}

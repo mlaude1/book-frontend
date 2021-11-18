@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Kurale&family=Patrick+Hand&family=Shalimar&display=swap');
+
+// =========================
+// Variables
+// =========================
+$primary-color: #05386B;
+$primary-light: #e7edf3;
+$primary-dark: #021222;
+$secondary-color: white;
+$tertiary-color: #fff6cc;
+$tertiary-dark:  #ffee99;
+$tertiary-bold: #ff7b00;
+
+// =========================
+// Mixins
+// =========================
+@mixin white-text-blue-bg {
+  color: $secondary-color;
+  background-color: $primary-color;
+}
+
+@mixin white-text-green-bg {
+  color: $secondary-color;
+  background-color: $tertiary-color;
+}
+
+@mixin title-font {
+  font-family: 'Kurale', serif;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+@mixin body-font {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+@mixin light-font {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+// =========================
+// Body/Main Styles
+// =========================
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // transition: .5s;
+}
+
+// =========================
+// Header
+// =========================
+
+nav {
+  @include white-text-blue-bg();
+  display: flex;
+  justify-content: flex-start;
+
+  a {
+    @include white-text-blue-bg();
+    text-decoration: none;
+
+    div {
+      margin: 10px;
+      font-size: large;
+
+      h1 {
+        @include title-font();
+      }
+      h1:hover {
+        // color: $tertiary-dark;
+        text-shadow: 0 0 2px $tertiary-dark, 0 0 2px $tertiary-dark;
+        transition: .2s ease;
+      }
+    }
+
+  }
+
+}
+
+// =========================
+// Form
+// =========================
+form {
+  background: $tertiary-dark;
+  width: 350px;
+  padding: 0 30px;
+  border-radius: 6px;
+
+  fieldset {
+    background: $tertiary-color;
+    border: 1.7px dashed #ffd819;
+    padding: 20px;
+    margin: 20px 0;
+
+    legend {
+      font-family: 'Amatic SC', cursive;
+      font-weight: bold;
+      font-size: 2em;
+      padding: 0px 10px;
+    }
+
+    label {
+      font-family: 'Amatic SC', cursive;
+      font-weight: 200;
+      font-size: 1.2em;
+      display: block;
+     }
+     
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      box-sizing: border-box;
+     }
+     input:focus {
+      outline: 0;
+      border: 2px solid $tertiary-bold;
+      border-radius: 4px;
+     }
+  }
+  
+  input[type="submit"] {
+    background: $secondary-color;
+    box-shadow: 2px 2px $tertiary-bold;
+    color: black ;
+    font-size: 1.5em;
+    font-family: 'Amatic SC', cursive;
+    width: 100%;
+    border: 0px;
+    margin-bottom: 20px;
+  }
+  input[type="submit"]:hover {
+    cursor: pointer;
+    background: $tertiary-bold;
+    box-shadow: 2px 2px white;
+    color: white;
+    }
+
+}
+
+// =========================
+// Books
+// =========================
+.books-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    border: 1.5px solid $primary-color;
+    padding: 30px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    max-width: 500px;
+    margin: 15px;
+    
+    img {
+      height: 250px; 
+    }
+
+    .book-details {
+      margin-left: 30px;
+
+      h1 {
+        color: $primary-dark
+      }
+      h2 {
+        color: $primary-dark;
+        font-size: 1.2em;
+        font-weight: lighter;
+      }
+
+    }
+  }
+  a:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.2s ease;
+  }
+}
+
+#add-icon, #pencil-icon {
+  position: relative;
+  font-size: .7em;
+  bottom: 3px;
+  right: 5px;
+}
+
+// =========================
+// Delete button
+// =========================
+#delete {
+  width: 200px;
+  background: white;
+  box-shadow: 2px 2px $tertiary-bold;
+  font-size: 1.5em;
+  font-family: 'Amatic SC', cursive;
+  color: black;
+  border: 0px;
+  margin: 30px;
+
+  #trash-can-icon {
+    position: relative;
+    bottom: .5px;
+    right: 5px;
+  }
+}
+
+#delete:hover {
+  cursor: pointer;
+  background: #e91414;
+  box-shadow: 2px 2px white;
+  color: white;
+  }
