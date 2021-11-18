@@ -84,11 +84,13 @@ const Index = (props) => {
                 {form}
                 <div className="books-container">
                     {props.books.map((book) => {
-                        return (<div key={book._id} className = "book">
+                        return (<div key={book._id} className="book">
                             <Link to={`/books/${book._id}`}>
                                 <img src={book.coverImage}/>
-                                <h1>{book.title}</h1>
-                                <h2>by {book.author}</h2>
+                                <div className="book-details">
+                                    <h1>{book.title}</h1>
+                                    <h2>by {book.author}</h2>
+                                </div>
                             </Link>
                         </div>)
                     })}
