@@ -45,6 +45,7 @@ const Show = (props) => {
 
         const form = (
             <form onSubmit={handleSubmit}>
+                <fieldset>
                 <legend>Edit book details:</legend>
                 <input 
                     type="text"
@@ -81,6 +82,8 @@ const Show = (props) => {
                     placeholder="Brief Description"
                     onChange={handleChange}
                 />
+                </fieldset>
+                
                 <input type="submit" value="Update Book" />
             </form>
         )
@@ -93,7 +96,7 @@ const Show = (props) => {
                 <h4>{book.description}</h4>
                 <p>{book.genre}</p>
                 {form}
-                <button onClick={removeBook}>Delete Book</button>
+                <button id="delete" onClick={removeBook}><i id="trash-can-icon" class="fa fa-trash"></i> Delete Book</button>
             </div>
         )
     }

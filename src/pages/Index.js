@@ -31,42 +31,49 @@ const Index = (props) => {
 
     const form = (
         <form onSubmit={handleSubmit}>
+            <fieldset>
             <legend>Add a new book!</legend>
-            <input 
-                type="text"
-                value={newForm.title}
-                name="title"
-                placeholder="Book Title"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.author}
-                name="author"
-                placeholder="Author"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.genre}
-                name="genre"
-                placeholder="Genre"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.coverImage}
-                name="coverImage"
-                placeholder="Book Cover Image"
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                value={newForm.description}
-                name="description"
-                placeholder="Brief Description"
-                onChange={handleChange}
-            />
+                <label>Title</label>
+                <input 
+                    type="text"
+                    value={newForm.title}
+                    name="title"
+                    placeholder="Frankenstein"
+                    onChange={handleChange}
+                />
+                <label>Author</label>
+                <input 
+                    type="text"
+                    value={newForm.author}
+                    name="author"
+                    placeholder="Mary Shelley"
+                    onChange={handleChange}
+                />
+                <label>Genres</label>
+                <input 
+                    type="text"
+                    value={newForm.genre}
+                    name="genre"
+                    placeholder="Horror, Science Fiction"
+                    onChange={handleChange}
+                />
+                <label>Book Cover</label>
+                <input 
+                    type="text"
+                    value={newForm.coverImage}
+                    name="coverImage"
+                    placeholder="Book Cover Image"
+                    onChange={handleChange}
+                />
+                <label>Description</label>
+                <input 
+                    type="text"
+                    value={newForm.description}
+                    name="description"
+                    placeholder="Brief Description"
+                    onChange={handleChange}
+                />
+            </fieldset>
             <input type="submit" value="Add Book" />
         </form>
     )
