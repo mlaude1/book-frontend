@@ -83,20 +83,25 @@ const Show = (props) => {
                     onChange={handleChange}
                 />
                 </fieldset>
-                
-                <input type="submit" value="Update Book" />
+                <div className="form-btns">
+                    <input type="submit" value="Update Book" />
+                    <button id="delete" onClick={removeBook}><i id="trash-can-icon" class="fa fa-trash"></i> Delete Book</button>
+                </div>
             </form>
         )
 
         return (
             <div className="book-show">
-                <h1>{book.title}</h1>
-                <h2>{book.author}</h2>
-                <img src={book.coverImage} alt={book.title}/>
-                <h4>{book.description}</h4>
-                <p>{book.genre}</p>
+                <div className="show-container">
+                    <img src={book.coverImage} alt={book.title}/>
+                    <div className="show-details">
+                        <h1>{book.title}</h1>
+                        <h2>{book.author}</h2>
+                        <h4>{book.description}</h4>
+                        <p>{book.genre}</p>
+                    </div>
+                </div>
                 {form}
-                <button id="delete" onClick={removeBook}><i id="trash-can-icon" class="fa fa-trash"></i> Delete Book</button>
             </div>
         )
     }

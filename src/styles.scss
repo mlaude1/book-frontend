@@ -3,12 +3,12 @@
 // =========================
 // Variables
 // =========================
-$primary-color: #05386B;
+$primary-color: #026670;
 $primary-light: #e7edf3;
 $primary-dark: #021222;
 $secondary-color: white;
-$tertiary-color: #fff6cc;
-$tertiary-dark:  #ffee99;
+$tertiary-color: #fef9c7;
+$tertiary-dark:  #fce181;
 $tertiary-bold: #ff7b00;
 
 // =========================
@@ -47,7 +47,11 @@ $tertiary-bold: #ff7b00;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // transition: .5s;
+  transition: .5s;
+}
+
+body {
+  @include body-font()
 }
 
 // =========================
@@ -57,7 +61,8 @@ $tertiary-bold: #ff7b00;
 nav {
   @include white-text-blue-bg();
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+
 
   a {
     @include white-text-blue-bg();
@@ -86,9 +91,11 @@ nav {
 // =========================
 form {
   background: $tertiary-dark;
-  width: 350px;
   padding: 0 30px;
   border-radius: 6px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
 
   fieldset {
     background: $tertiary-color;
@@ -129,9 +136,10 @@ form {
     color: black ;
     font-size: 1.5em;
     font-family: 'Amatic SC', cursive;
-    width: 100%;
+    width: 200px;
     border: 0px;
     margin-bottom: 20px;
+    text-align: center;
   }
   input[type="submit"]:hover {
     cursor: pointer;
@@ -140,47 +148,91 @@ form {
     color: white;
     }
 
+    .form-btns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      #delete {
+        width: 200px;
+        background: white;
+        box-shadow: 2px 2px $tertiary-bold;
+        font-size: 1.5em;
+        font-family: 'Amatic SC', cursive;
+        color: black;
+        border: 0px;
+        margin-bottom: 30px;
+      
+        #trash-can-icon {
+          position: relative;
+          bottom: .5px;
+          right: 5px;
+        }
+      }
+      
+      #delete:hover {
+        cursor: pointer;
+        background: #e91414;
+        box-shadow: 2px 2px white;
+        color: white;
+        }
+    }
+
+    #add {
+      margin: 0 auto 20px;
+    }
 }
 
 // =========================
-// Books
+// Index Books
 // =========================
 .books-container {
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1400px;
 
-  a {
-    border: 1.5px solid $primary-color;
+  .book {
+    width: 300px;
     padding: 30px;
     border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
     max-width: 500px;
     margin: 15px;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+    }
     
     img {
-      height: 250px; 
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
     }
 
     .book-details {
-      margin-left: 30px;
+      margin-top: 10px;
+      font-size: 0.8em;
+      width: 200px;
 
       h1 {
         color: $primary-dark
       }
       h2 {
         color: $primary-dark;
-        font-size: 1.2em;
         font-weight: lighter;
       }
 
     }
   }
-  a:hover {
+
+  .book:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: 0.2s ease;
+    transform: scale(1.01);
   }
 }
 
@@ -192,28 +244,82 @@ form {
 }
 
 // =========================
-// Delete button
+// Show Page
 // =========================
-#delete {
-  width: 200px;
-  background: white;
-  box-shadow: 2px 2px $tertiary-bold;
-  font-size: 1.5em;
-  font-family: 'Amatic SC', cursive;
-  color: black;
-  border: 0px;
-  margin: 30px;
+.show-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+  max-width: 900px;
 
-  #trash-can-icon {
-    position: relative;
-    bottom: .5px;
-    right: 5px;
+  img {
+    max-width: 400px;
+    max-height: 450px;
+  }
+
+  .show-details {
+    flex-basis: 50%;
+    margin: 20px;
+    padding: 10px;
+
+    h1, h2, p {
+      text-align: center;
+      margin: 5px;
+    }
+
+    h4 {
+      @include light-font();
+      margin: 30px 5px;
+    }
   }
 }
 
-#delete:hover {
-  cursor: pointer;
-  background: #e91414;
-  box-shadow: 2px 2px white;
-  color: white;
+// =========================
+// Delete button
+// =========================
+
+
+// =========================
+// Media Queries
+// =========================
+@media screen and (min-width: 768px) {
+
+  .show-container {
+    flex-direction: row;
   }
+
+  form {
+    width: 80%;
+    margin: 20px auto;
+
+    .flex-pair {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      label {
+        flex-basis: 30%;
+      }
+    }
+
+    .form-btns {
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 30px;
+
+      input, #delete {
+        margin: 0 10px;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  form {
+    width: 65%;
+    max-width: 800px;
+  }
+}
