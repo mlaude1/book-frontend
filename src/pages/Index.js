@@ -33,48 +33,66 @@ const Index = (props) => {
         <form onSubmit={handleSubmit}>
             <fieldset>
             <legend><i id="add-icon" class="fa fa-plus" aria-hidden="true"></i>Add a new book!</legend>
-                <label>Title</label>
+            <div className="flex-pair">
+                <label for="title">Title</label>
                 <input 
                     type="text"
                     value={newForm.title}
                     name="title"
+                    id="title"
                     // placeholder="Book Title"
                     onChange={handleChange}
                 />
-                <label>Author</label>
+            </div>
+            <div className="flex-pair">
+                <label for="author">Author</label>
                 <input 
                     type="text"
                     value={newForm.author}
                     name="author"
+                    id="author"
                     // placeholder="Author"
                     onChange={handleChange}
                 />
-                <label>Genres</label>
+            </div>
+
+            <div className="flex-pair">
+                <label for="genre">Genres</label>
                 <input 
                     type="text"
                     value={newForm.genre}
                     name="genre"
+                    id="genre"
                     // placeholder="Genre"
                     onChange={handleChange}
                 />
-                <label>Book Cover</label>
+            </div> 
+
+            <div className="flex-pair">
+                <label for="coverImage">Book Cover</label>
                 <input 
                     type="text"
                     value={newForm.coverImage}
                     name="coverImage"
+                    id="coverImage"
                     // placeholder="Book Cover Image"
                     onChange={handleChange}
                 />
-                <label>Description</label>
+            </div>
+
+            <div className="flex-pair">
+                <label for="description">Description</label>
                 <input 
                     type="text"
                     value={newForm.description}
                     name="description"
+                    id="description"
                     // placeholder="Brief Description"
                     onChange={handleChange}
                 />
+            </div>
             </fieldset>
-            <input type="submit" value="Add Book" />
+            <input type="submit" value="Add Book" id="add"/>
         </form>
     )
 
