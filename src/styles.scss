@@ -87,6 +87,72 @@ nav {
 }
 
 // =========================
+// Carousel
+// =========================
+.slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
+}
+
+#left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+#right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+#left-arrow:hover, #right-arrow:hover {
+  transform: scale(1.3);
+  transition: .2s ease;
+}
+
+// .slide {
+//   opacity: 0;
+// }
+
+// .slide.active {
+//   opacity: 1;
+//   // animation: autoplay2 2s ease forwards;
+// }
+
+.slider {
+  
+}
+
+@keyframes autoplay2 {
+  0% {
+    transform: translateX(0)
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// =========================
 // Form
 // =========================
 form {
