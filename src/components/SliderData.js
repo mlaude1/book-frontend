@@ -13,5 +13,8 @@ export const SliderData = [
   },
   {
     image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.sandiegoreader.com%2Fimg%2Fevents%2F2015%2Fclifford-book-fair.jpg&f=1&nofb=1'
+  },
+  {
+    image: 'https://dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2021/11/16/Gateway_Quote_A2_black-voices_11-16.jpg'
   }
 ]

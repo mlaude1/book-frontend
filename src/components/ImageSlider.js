@@ -22,12 +22,8 @@ const ImageSlider = ({ slides }) => {
       <i class="fa fa-chevron-circle-right" aria-hidden="true" id="right-arrow" onClick={nextSlide}></i>
       {SliderData.map((slide, index) => {
         return (
-          // <div 
-          // className={index === current ? "slide active" : "slide"}
-          // key={index}
-          // >
           <div 
-          className="slide"
+          className={index === current ? "slide active" : "slide"}
           key={index}
           >
             {index === current && (
