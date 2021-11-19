@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import {Routes, Route} from "react-router-dom"
 import Index from "../pages/Index"
 import Show from "../pages/Show"
+import { SliderData } from "./SliderData"
 
 const Main = (props) => {
     
@@ -53,7 +54,7 @@ const Main = (props) => {
         <main>
             <Routes>
                 <Route path="/" element={
-                <Index books={books} createBook={createBook}/>
+                <Index books={books} createBook={createBook} slides={SliderData}/>
                 }/>
                 <Route path="/books/:id" element={<Show books={books} updateBook={updateBook} deleteBook={deleteBook}/>}/>
             </Routes>
