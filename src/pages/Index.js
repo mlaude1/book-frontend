@@ -14,6 +14,8 @@ const Index = (props) => {
         description: ""
     })
 
+    const [searchValue, setSearchValue] = useState("")
+
     const handleChange = (event) => {
         const newState = {...newForm}
         newState[event.target.name] = event.target.value
@@ -104,8 +106,14 @@ const Index = (props) => {
             <section>
                 <ImageSlider slides={SliderData} />
                 {form}
+                <input type="search" placeholder="Search Titles or Authors" onChange={(event) => setSearchValue(event.target.value)}/>
                 <div className="books-container">
-                    {props.books.map((book) => {
+                    {props.books.filter((book) => {
+                        if (searchValue === "") return book
+                        else if (book.title.toLowerCase().includes(searchValue.toLowerCase())) return book
+                        else if (book.author.toLowerCase().includes(searchValue.toLowerCase())) return book
+                    })
+                    .map((book) => {
                         return (<div key={book._id} className="book">
                             <Link to={`/books/${book._id}`}>
                                 <img src={book.coverImage}/>

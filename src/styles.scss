@@ -74,7 +74,9 @@ nav {
 
       h1 {
         @include title-font();
+        text-align: center;
       }
+
       h1:hover {
         // color: $tertiary-dark;
         text-shadow: 0 0 2px $tertiary-dark, 0 0 2px $tertiary-dark;
@@ -91,22 +93,25 @@ nav {
 // =========================
 .slider {
   position: relative;
-  height: 100vh;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .image {
-  width: 1000px;
-  height: 600px;
+  width: 90%;
+  height: auto;
+  display: block;
+  margin: auto;
+  object-fit: scale-down;
   border-radius: 10px;
 }
 
 #left-arrow {
   position: absolute;
   top: 50%;
-  left: 32px;
+  left: 5%;
   font-size: 3rem;
   color: #000;
   z-index: 10;
@@ -117,7 +122,7 @@ nav {
 #right-arrow {
   position: absolute;
   top: 50%;
-  right: 32px;
+  right: 5%;
   font-size: 3rem;
   color: #000;
   z-index: 10;
@@ -248,7 +253,7 @@ form {
 
   .book {
     width: 300px;
-    padding: 30px;
+    padding: 10px;
     border-radius: 6px;
     max-width: 500px;
     margin: 15px;
@@ -276,7 +281,7 @@ form {
         color: $primary-dark
       }
       h2 {
-        color: $primary-dark;
+        color: $primary-color;
         font-weight: lighter;
       }
 
@@ -294,6 +299,16 @@ form {
   font-size: .7em;
   bottom: 3px;
   right: 5px;
+}
+
+input[type="search"] {
+  @include light-font();
+  border: 1px solid $primary-color;
+  display: block;
+  margin: auto;
+  width: 60%;
+  margin-top: 30px;
+  padding: 10px;
 }
 
 // =========================
@@ -322,6 +337,11 @@ form {
       margin: 5px;
     }
 
+    h2 {
+      color: $primary-color;
+      @include body-font();
+    }
+
     h4 {
       @include light-font();
       margin: 30px 5px;
@@ -330,14 +350,15 @@ form {
 }
 
 // =========================
-// Delete button
-// =========================
-
-
-// =========================
 // Media Queries
 // =========================
 @media screen and (min-width: 768px) {
+
+  .image {
+    width: 700px;
+    height: 400px;
+    border-radius: 10px;
+  }
 
   .show-container {
     flex-direction: row;
@@ -368,11 +389,37 @@ form {
     }
   }
 
+  input[type="search"] {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+
 }
 
 @media screen and (min-width: 1024px) {
+
+  .image {
+    width: 1000px;
+    height: 500px;
+  }
+
   form {
     width: 65%;
     max-width: 800px;
+  }
+
+  input[type="search"] {
+    width: 30%;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  #left-arrow {
+    left: 10%;
+  }
+
+  #right-arrow {
+    right: 10%;
   }
 }
