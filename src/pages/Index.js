@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import ImageSlider from "../components/ImageSlider"
+import { SliderData } from "../components/SliderData"
+
 
 const Index = (props) => {
     
@@ -99,6 +102,7 @@ const Index = (props) => {
     if (props.books) {
         return (
             <section>
+                <ImageSlider slides={SliderData} />
                 {form}
                 <div className="books-container">
                     {props.books.map((book) => {
