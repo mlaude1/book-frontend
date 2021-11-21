@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
+import StarRating from "../components/StarRating";
+
 
 const Show = (props) => {
     const navigate = useNavigate();
@@ -99,6 +101,7 @@ const Show = (props) => {
                         <h2>{book.author}</h2>
                         <h4>{book.description}</h4>
                         <p>{book.genre}</p>
+                        <StarRating />
                     </div>
                 </div>
                 {form}

@@ -349,6 +349,15 @@ input[type="search"] {
   }
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+#star-icon {
+  cursor: pointer;
+  transition: none;
+}
+
 // =========================
 // Media Queries
 // =========================
