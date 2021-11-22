@@ -346,6 +346,12 @@ input[type="search"] {
       @include light-font();
       margin: 30px 5px;
     }
+
+    .stars {
+      @include body-font();
+      color: $primary-color;
+      margin: 10px;
+    }
   }
 }
 
