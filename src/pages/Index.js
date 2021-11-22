@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import ImageSlider from "../components/ImageSlider"
 import { SliderData } from "../components/SliderData"
+import { Fade } from "react-awesome-reveal";
 
 
 const Index = (props) => {
@@ -108,6 +109,7 @@ const Index = (props) => {
                 {form}
                 <input type="search" placeholder="Search Titles or Authors" onChange={(event) => setSearchValue(event.target.value)}/>
                 <div className="books-container">
+                    <Fade triggerOnce>
                     {props.books.filter((book) => {
                         if (searchValue === "") return book
                         else if (book.title.toLowerCase().includes(searchValue.toLowerCase())) return book
@@ -124,6 +126,7 @@ const Index = (props) => {
                             </Link>
                         </div>)
                     })}
+                    </Fade>
                 </div>
             </section>
         )
