@@ -350,7 +350,13 @@ input[type="search"] {
 }
 
 input[type="radio"] {
-  // display: none;
+  display: none;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 }
 
 #star-icon {

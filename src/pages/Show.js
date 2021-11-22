@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import StarRating from "../components/StarRating";
-import { FaStar } from "react-icons/fa"
 
 
 const Show = (props) => {
@@ -31,6 +30,7 @@ const Show = (props) => {
             const newState = {...editForm}
             newState[event.target.name] = event.target.value
             setEditForm(newState)
+            console.log(newState)
         }
 
         // handleSubmit function for form 
@@ -85,64 +85,7 @@ const Show = (props) => {
                     placeholder="Brief Description"
                     onChange={handleChange}
                 />
-                {/* ⬇️UNDER CONSTRUCTION⬇️ */}
-
-                <div>
-                <input 
-                    type="radio"
-                    value={editForm.starRating}
-                    name="starRating"
-                    value="5"
-                    onChange={handleChange}
-                />
-                <label>5 stars</label>
-                </div>
-                
-                <div>
-                <input 
-                    type="radio"
-                    value={editForm.starRating}
-                    name="starRating"
-                    value="4"
-                    onChange={handleChange}
-                />
-                <label>4 stars</label>
-                </div>
-
-                <div>
-                <input 
-                    type="radio"
-                    value={editForm.starRating}
-                    name="starRating"
-                    value="3"
-                    onChange={handleChange}
-                />
-                <label>3 stars</label>
-                </div>
-
-                <div>
-                <input 
-                    type="radio"
-                    value={editForm.starRating}
-                    name="starRating"
-                    value="2"
-                    onChange={handleChange}
-                />
-                <label>2 stars</label>
-                </div>
-
-                <div>
-                <input 
-                    type="radio"
-                    value={editForm.starRating}
-                    name="starRating"
-                    value="1"
-                    onChange={handleChange}
-                />
-                <label>1 star</label>
-                </div>
-
-                {/* ⬆️UNDER CONSTRUCTION⬆️ */}
+                <StarRating handleChange={handleChange}/>
                 </fieldset>
                 <div className="form-btns">
                     <input type="submit" value="Update Book" />
@@ -160,27 +103,7 @@ const Show = (props) => {
                         <h2>{book.author}</h2>
                         <h4>{book.description}</h4>
                         <p>{book.genre}</p>
-                        {/* ⬇️UNDER CONSTRUCTION⬇️ */}
-                        
-                        <div>Rating: {book.starRating} stars</div>
-                        <FaStar />
-                        <div>
-                            {[...Array(5).map((star, i) => {
-                                const ratingValue = i + 1
-
-                                return <label>
-                                    <input 
-                                    type="radio"
-                                    name="starRating"
-                                    value={book.starRating}
-                                    />
-                                    <FaStar 
-                                    value={book.starRating}/>
-                                </label>
-                            })]}
-                        </div>
-                    
-                        {/* ⬆️UNDER CONSTRUCTION⬆️ */}
+                        <p>Stars: {book.starRating}</p>
                     </div>
                 </div>
                 {form}

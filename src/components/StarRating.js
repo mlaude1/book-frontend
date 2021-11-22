@@ -4,9 +4,9 @@ import { FaStar } from "react-icons/fa"
 const StarRating = (props) => {
   const [rating, setRating] = useState(null)
   const [hover, setHover] = useState(null)
-  
+
   return (
-    <div>
+    <div className="star-rating">
       {[ ...Array(5)].map((star, i) => {
         const ratingValue = i + 1
 
@@ -14,8 +14,9 @@ const StarRating = (props) => {
           <input 
           type="radio"
           name="starRating"
-          value={props.starRating}
+          value={ratingValue}
           onClick={() => setRating(ratingValue)} 
+          onChange={props.handleChange}
           />
           <FaStar 
           id="star-icon"
