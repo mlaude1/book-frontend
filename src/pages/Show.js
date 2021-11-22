@@ -1,5 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
+import StarRating from "../components/StarRating";
+import { FaStar } from "react-icons/fa"
+
 
 const Show = (props) => {
     const navigate = useNavigate();
@@ -28,6 +31,7 @@ const Show = (props) => {
             const newState = {...editForm}
             newState[event.target.name] = event.target.value
             setEditForm(newState)
+            console.log(newState)
         }
 
         // handleSubmit function for form 
@@ -82,6 +86,7 @@ const Show = (props) => {
                     placeholder="Brief Description"
                     onChange={handleChange}
                 />
+                <StarRating handleChange={handleChange}/>
                 </fieldset>
                 <div className="form-btns">
                     <input type="submit" value="Update Book" />
@@ -99,6 +104,7 @@ const Show = (props) => {
                         <h2>{book.author}</h2>
                         <h4>{book.description}</h4>
                         <p>{book.genre}</p>
+                        <p className="stars">{book.starRating !== undefined ? book.starRating + " Stars": "Leave a rating below!"}</p>
                     </div>
                 </div>
                 {form}
