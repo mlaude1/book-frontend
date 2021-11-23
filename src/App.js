@@ -1,5 +1,4 @@
 import Header from "./components/Header";
-import ImageSlider from "./components/ImageSlider";
 import Main from "./components/Main";
 
 

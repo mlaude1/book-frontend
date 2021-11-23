@@ -20,9 +20,7 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <section className="slider">
-      {/* <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> */}
       <CgChevronLeftO  id="left-arrow" onClick={prevSlide} />
-      {/* <i class="fa fa-chevron-circle-right" aria-hidden="true"></i> */}
       <CgChevronRightO id="right-arrow" onClick={nextSlide}/>
       {SliderData.map((slide, index) => {
         return (
