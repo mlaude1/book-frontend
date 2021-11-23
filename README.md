@@ -52,10 +52,10 @@ A functional carousel is displayed at the top of the Index page. There are butto
 **Star Rating System** \
 A star rating system allows the user to rank the quality of a book out of a total of five stars. This rating system is found in the Update Form of the Show page. It is designed so that the user can hover their cursor over the desired amount of stars  and simply click. Upon updating the book, the star rating will be displayed in the description. Credit for the Star Rating component goes to [Eric Murphy](https://www.youtube.com/watch?v=eDw46GYAIDQ&t=373s). The StarRating component is essentially an array of icons wrapped inside of a radio input. State is used to dynamically change the color of the star icons while hovering over them as well as setting a number value upon clicking a star. 
 
-**Search**
+**Search** \
 The search input on the index page allows the user to search for books based on the title or author. The filter is case insensitive so books can be filtered out whether using upper or lowercase letters. The way this feature works is by using state to store the value typed into the search filter. That value is then used in a `filter()` method which sorts through all of the books returned from the API call to see if their author or title contains the search value. If they do, that data is mapped over and those books are displayed.
 
-**React Fade**
+**React Fade** \
 As the user scrolls down the book list, the books have a fade-in effect. This was created using the [React Awesome Reveal library](https://github.com/morellodev/react-awesome-reveal). In order to create the effect, the `Fade` component was imported from the libaray and wrapped around the list of books like a regular React component. The effect only happens once so the list stays revealed on the page after scrolling through. 
 
 
