@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Yellow Book Road
+#### By Sarah Carter, Bijan Saniee, and Matthew Laude
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
+This project is a book app that allows users to save books they would like to read. The app will have full CRUD functionality and allow users to add, edit, and delete new books. They will also be able to see details about the books such as descriptions, genres, and the cover. 
 
-In the project directory, you can run:
+## Components
+- Header 
+- Main
+- Index
+- Show
+- ImageSlider
+- SliderData
+- StarRating
 
-### `npm start`
+## React Component Architecture
+```
+-> App
+  -> Header
+  -> Main |state: books|
+    -> Routes
+      -> Route |path: "/"|
+        -> Index |Props: books, createBook|
+      -> Route |path="/books/:id|
+        -> Show |Props: books, updateBook, deleteBook|
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## React Router Route Table
+| URL | Component | Method | Action |
+|-----|-----------|--------|--------|
+| / | Index | get | getting all books (index)||
+| / | Index | post | posting a new book (create) |
+| /books/:id | Show | put | updating a book (update) |
+| /books/:id | Show | delete | delete a book (destroy) |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## User Stories
+As a user, I can see a list of all my books when I visit the page. \
+As a user, I can click on one of my books and have it take me to a show page that displays details about the book. \
+As a user, I can add a new book and see that it immediately loads on the page so that I know I successfully added a book. \
+As a user, I can delete a book so I can keep my list relevant. \
+As a user, I can update a book in case I made a typo. \
+As a user, I can rate a book via a 5-star system.
 
-### `npm test`
+## Technologies
+REACT, react-router-dom, Sass, react-icons, react-awesome-reveal
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Bonus Features
+**Carousel** \
+A functional carousel is displayed at the top of the Index page. There are buttons on both sides of the carousel that allow the user to cycle through the images. Clicking the button on the right goes to the next image, while clicking the left button goes to the previous image. The user is able to cycle through the images infinitely. Credit for the Carousel goes to [Brian Design](https://www.youtube.com/watch?v=l1MYfu5YWHc&t=523s). How it works is there are two main components: `ImageSlider.js` and `SliderData.js`. The images are stored in `SliderData.js`, which are then imported into the `ImageSlider.js`. The Carousel then utilizes State to display one image at a time, depending on the current index.
 
-### `npm run build`
+**Star Rating System** \
+A star rating system allows the user to rank the quality of a book out of a total of five stars. This rating system is found in the Update Form of the Show page. It is designed so that the user can hover their cursor over the desired amount of stars  and simply click. Upon updating the book, the star rating will be displayed in the description. Credit for the Star Rating component goes to [Eric Murphy](https://www.youtube.com/watch?v=eDw46GYAIDQ&t=373s). The StarRating component is essentially an array of icons wrapped inside of a radio input. State is used to dynamically change the color of the star icons while hovering over them as well as setting a number value upon clicking a star. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Search Filter** \
+The search input on the index page allows the user to search for books based on the title or author. The filter is case insensitive so books can be filtered out whether using upper or lowercase letters. The way this feature works is by using state to store the value typed into the search filter. That value is then used in a `filter()` method which sorts through all of the books returned from the API call to see if their author or title contains the search value. If they do, that data is mapped over and those books are displayed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**React Fade** \
+As the user scrolls down the book list, the books have a fade-in effect. This was created using the [React Awesome Reveal library](https://github.com/morellodev/react-awesome-reveal). In order to create the effect, the `Fade` component was imported from the libaray and wrapped around the list of books like a regular React component. The effect only happens once so the list stays revealed on the page after scrolling through. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Challenges
+- **carousel is appearing on both the index and show pages** \
+Upon creating the carousel component, it was appearing in both the Index and Show pages. This was because the component was placed in the `App.js`, in between the `Header` and `Main` components. To fix this, all we had to do was import `ImageSlider` and `SliderData` into the Index page, then place the component where we wanted it. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **star rating data is not being saved** \
+There was an issue with the rating system where the stars were appearing just fine and could be clicked on, but the data was not being saved. In order to fix this, we first had to go to the backend and add a starRating property with a number value to the BookSchema. Next, we placed the star component inside the Update Form and passed it the `handleChange` function as props. Lastly, inside the `StarRating.js`, we also had to put the `handleChange` function on the input as well as change the `name` attribute to "starRating" in order for the data to go to the right place. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **scroll effect happening too many times** \
+When adding in the scroll effect, there was initially a bug where the books would continue to fade in while scrolling up and down. This was a bit disorienting as a user, as it made the book list not feel solid on the page. After reading the documentation, I discovered a `triggerOnce` attribute that ensures the animation only happens on the first scroll reveal. This fixed the problem and made the list feel more sturdy on the page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **search filter seems broken** \
+There was a brief moment where typing a few letters into the search filter would cause the app to crash. My initial thought was that there must have been an accidental typo in one of the last commits. The peculiar thing, however, was that I was getting the error on a committed version where it was working before; the code hadn't been updated yet. I thought - _How is this possible?_ Turns out, it was a backend issue. A book was added without a value for 'author', so that's why the search filter was returning an undefined error. This book was deleted and the search filter worked normally. 
