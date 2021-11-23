@@ -40,19 +40,20 @@ As a user, I can see a list of all my books when I visit the page. \
 As a user, I can click on one of my books and have it take me to a show page that displays details about the book. \
 As a user, I can add a new book and see that it immediately loads on the page so that I know I successfully added a book. \
 As a user, I can delete a book so I can keep my list relevant. \
-As a user, I can update a book in case I made a typo.
+As a user, I can update a book in case I made a typo. \
+As a user, I can rate a book via a 5-star system.
 
 ## Technologies
 REACT, react-router-dom, Sass, react-icons, react-awesome-reveal
 
 ## Bonus Features
 **Carousel** \
-A functional carousel is displayed at the top of the Index page. There are buttons on both sides of the carousel that allow the user to cycle through the images. Clicking the button on the right goes to the next image, while clicking the left button goes to the previous image. The user is able to cycle through the images infinitely. Credit for the Carousel goes to [Brian Design](https://www.youtube.com/watch?v=l1MYfu5YWHc&t=523s). How it works is there are two main components: `ImageSlider.js` and `SliderData.js`. The images are stored in `SliderData.js`, which are then imported into the `ImageSlider.js`. The Carousel then utilizes State to display one image at a time, depending on the current index. \
+A functional carousel is displayed at the top of the Index page. There are buttons on both sides of the carousel that allow the user to cycle through the images. Clicking the button on the right goes to the next image, while clicking the left button goes to the previous image. The user is able to cycle through the images infinitely. Credit for the Carousel goes to [Brian Design](https://www.youtube.com/watch?v=l1MYfu5YWHc&t=523s). How it works is there are two main components: `ImageSlider.js` and `SliderData.js`. The images are stored in `SliderData.js`, which are then imported into the `ImageSlider.js`. The Carousel then utilizes State to display one image at a time, depending on the current index.
 
 **Star Rating System** \
 A star rating system allows the user to rank the quality of a book out of a total of five stars. This rating system is found in the Update Form of the Show page. It is designed so that the user can hover their cursor over the desired amount of stars  and simply click. Upon updating the book, the star rating will be displayed in the description. Credit for the Star Rating component goes to [Eric Murphy](https://www.youtube.com/watch?v=eDw46GYAIDQ&t=373s). The StarRating component is essentially an array of icons wrapped inside of a radio input. State is used to dynamically change the color of the star icons while hovering over them as well as setting a number value upon clicking a star. 
 
-**Search** \
+**Search Filter** \
 The search input on the index page allows the user to search for books based on the title or author. The filter is case insensitive so books can be filtered out whether using upper or lowercase letters. The way this feature works is by using state to store the value typed into the search filter. That value is then used in a `filter()` method which sorts through all of the books returned from the API call to see if their author or title contains the search value. If they do, that data is mapped over and those books are displayed.
 
 **React Fade** \
@@ -68,3 +69,6 @@ There was an issue with the rating system where the stars were appearing just fi
 
 - **scroll effect happening too many times** \
 When adding in the scroll effect, there was initially a bug where the books would continue to fade in while scrolling up and down. This was a bit disorienting as a user, as it made the book list not feel solid on the page. After reading the documentation, I discovered a `triggerOnce` attribute that ensures the animation only happens on the first scroll reveal. This fixed the problem and made the list feel more sturdy on the page.
+
+- **search filter seems broken** \
+There was a brief moment where typing a few letters into the search filter would cause the app to crash. My initial thought was that there must have been an accidental typo in one of the last commits. The peculiar thing, however, was that I was getting the error on a committed version where it was working before; the code hadn't been updated yet. I thought - _How is this possible?_ Turns out, it was a backend issue. A book was added without a value for 'author', so that's why the search filter was returning an undefined error. This book was deleted and the search filter worked normally. 
