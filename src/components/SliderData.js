@@ -9,18 +9,15 @@ export const SliderData = [
     image: 'https://i.imgur.com/G2hhMkO.png'
   },
   {
-    image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs-media-cache-ak0.pinimg.com%2Foriginals%2F1a%2Fff%2F0b%2F1aff0bc40b3a4e06fbf515fc69b24fb7.jpg&f=1&nofb=1'
+    image: 'https://i.imgur.com/6DnlpDJ.png'
   },
   {
     image: 'https://i.imgur.com/BvUjXtt.png'
   },
   {
-    image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.comunicaffe.com%2Fwp-content%2Fuploads%2F2016%2F05%2FCoffee-and-Books.jpg&f=1&nofb=1'
+    image: 'https://i.imgur.com/nDp3nkG.png'
   },
   {
-    image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.sandiegoreader.com%2Fimg%2Fevents%2F2015%2Fclifford-book-fair.jpg&f=1&nofb=1'
-  },
-  {
-    image: 'https://i.imgur.com/X1FVD9s.png'
+    image: 'https://i.imgur.com/Uzrj04l.png'
   }
 ]

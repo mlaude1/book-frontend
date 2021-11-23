@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { SliderData } from './SliderData';
+import { CgChevronRightO } from "react-icons/cg"
+import { CgChevronLeftO } from "react-icons/cg"
 
 const ImageSlider = ({ slides }) => {
   const [current, setCurrent] = useState(0)
@@ -18,8 +20,8 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <section className="slider">
-      <i class="fa fa-chevron-circle-left" aria-hidden="true" id="left-arrow" onClick={prevSlide}></i>
-      <i class="fa fa-chevron-circle-right" aria-hidden="true" id="right-arrow" onClick={nextSlide}></i>
+      <CgChevronLeftO  id="left-arrow" onClick={prevSlide} />
+      <CgChevronRightO id="right-arrow" onClick={nextSlide}/>
       {SliderData.map((slide, index) => {
         return (
           <div 
